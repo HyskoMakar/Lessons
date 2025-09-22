@@ -3,160 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макара уроки</title>
     <link rel="stylesheet" href="makar.css">
-    <title>Розклад Уроків</title>
 </head>
 <body>
+    <div id="current-lesson"></div>
+    <div id="current-time"></div>
+    <h1>Розклад уроків Макара</h1>
+
     <div id="head_gradient"></div>
     <div id="head_gradient2"></div>
 
-    <div id="current-lesson"></div>
-    <div id="current-time"></div>
-
-    <h1>Розклад уроків 8-В</h1>
-
-    <div id="table">
-        <table>
-            <tr id="head">
-                <th>Час</th>
-                <th>Понеділок</th>
-                <th>Вівторок</th>
-                <th>Середа</th>
-                <th>Четвер</th>
-                <th>П'ятниця</th>
-            </tr>
-            <tr>
-                <th id="l1">8:30 - 9:15</th>
-                <td><a href="https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09">укр.літ.</a></td>
-                <td class="divide-td">
-                  <div class="divide">
-                    <div><a href="https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1">гром. осв.</a></div>
-                    <div style="margin-left: 10px;"><a href="https://us04web.zoom.us/j/2907077579?pwd=mHaWTpFDUtsuAIJzL7ilkkESMxkDfW.1">ЗБД</a></div>
-                  </div>
-                </td>
-                <td><a href="https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09">укр.мов.</a></td>
-                <td><a href="https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09">фіз-ра</a></td>
-                <td><a href="https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1">хімія</a></td>
-            </tr>
-            <tr>
-                <th id="l2">9:20 - 10:05</th>
-                <td><a href="https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1">фізика</a></td>
-                <td><a href="https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09">фіз-ра</a></td>
-                <td><a href="https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09">матем.</a></td>
-                <td><a href="https://us05web.zoom.us/j/8960829905?pwd=VE5QK1EraGlaOTNyWDVseld4TCsydz09">мист.</a></td>
-                <td><a href="https://us05web.zoom.us/j/83853250995?pwd=eG5vNGtOTWJ5azJNYkE3RkFRY3pOZz09">техн.</a></td>
-            </tr>
-            <tr>
-                <th id="l3">10:15 - 11:00</th>
-                <td><a href="https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09">укр.мов.</a></td>
-                <td><a href="https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09">укр.мов.</a></td>
-                <td><a href="https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09">англ.м.</a></td>
-                <td><a href="https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1">геогр.</a></td>
-                <td><a href="https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09">біологія</a></td>
-            </tr>
-            <tr>
-                <th id="l4">11:10 - 11:55</th>
-                <td><a href="https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09">фіз-ра</a></td>
-                <td><a href="https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09">матем.</a></td>
-                <td><a href="https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09">біологія</a></td>
-                <td><a href="https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09">укр.мов.</a></td>
-                <td><a href="https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09">матем.</a></td>
-            </tr>
-            <tr>
-                <th id="l5">12:05 - 12:50</th>
-                <td><a href="https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1">геогр.</a></td>
-                <td><a href="https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1">хімія</a></td>
-                <td><a href="https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09">укр.літ.</a></td>
-                <td><a href="https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09">матем.</a></td>
-                <td><a href="https://us04web.zoom.us/j/3967718575?pwd=OWQvOTdXVkxrZk81Yk1EZG52c1BiQT09">інформ.</a></td>
-            </tr>
-            <tr>
-                <th id="l6">12:55 - 13:40</th>
-                <td><a href="https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09">матем.</a></td>
-                <td><a href="https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09">англ.м.</a></td>
-                <td><a href="https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1">фізика</a></td>
-                <td><a href="https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09">англ.м.</a></td>
-                <td><a href="https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1">історія</a></td>
-            </tr>
-            <tr>
-                <th id="l7">13:45 - 14:30</th>
-                <td><a href="https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09">зар.літ.</a></td>
-                <td class="divide-td">
-                  <div class="divide">
-                    <div><a href="https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09">ПФГ</a></div>
-                    <div style="margin-left: 10px;"><a href="https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1">історія</a></div>
-                  </div>
-                </td>
-                <td><a href="https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09">зар.літ.</a></td>
-                <td><a href="https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1">історія</a></td>
-                <td><a href="https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09">англ.м.</a></td>
-            </tr>
-        </table>
-    </div>
+    <div id="table"></div>
 <script>
-const schedule = [
-  // Понеділок
-  [
-    { name: "укр.літ.", url: "https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09", start: "08:30", end: "09:15" },
-    { name: "фізика", url: "https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1", start: "09:20", end: "10:05" },
-    { name: "укр.мов.", url: "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", start: "10:15", end: "11:00" },
-    { name: "фіз-ра", url: "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", start: "11:10", end: "11:55" },
-    { name: "геогр.", url: "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1", start: "12:05", end: "12:50" },
-    { name: "матем.", url: "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", start: "12:55", end: "13:40" },
-    { name: "зар.літ.", url: "https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09", start: "13:45", end: "14:30" }
-  ],
-  // Вівторок
-  [
-    // Первый урок — два предмета!
-    [
-      { name: "гром. осв.", url: "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1" },
-      { name: "ЗБД", url: "https://us04web.zoom.us/j/2907077579?pwd=mHaWTpFDUtsuAIJzL7ilkkESMxkDfW.1" }
-    ],
-    { name: "фіз-ра", url: "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", start: "09:20", end: "10:05" },
-    { name: "укр.мов.", url: "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", start: "10:15", end: "11:00" },
-    { name: "матем.", url: "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", start: "11:10", end: "11:55" },
-    { name: "хімія", url: "https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1", start: "12:05", end: "12:50" },
-    { name: "англ.м.", url: "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", start: "12:55", end: "13:40" },
-    // 7-й урок — два предмета!
-    [
-      { name: "ПФГ", url: "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09" },
-      { name: "історія", url: "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1" }
-    ]
-  ],
-  // Середа
-  [
-    { name: "ЗБД", url: "https://us04web.zoom.us/j/2907077579?pwd=mHaWTpFDUtsuAIJzL7ilkkESMxkDfW.1", start: "08:30", end: "09:15" },
-    { name: "матем.", url: "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09", start: "09:20", end: "10:05" },
-    { name: "англ.м.", url: "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", start: "10:15", end: "11:00" },
-    { name: "біологія", url: "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09", start: "11:10", end: "11:55" },
-    { name: "укр.літ.", url: "https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09", start: "12:05", end: "12:50" },
-    { name: "фізика", url: "https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1", start: "12:55", end: "13:40" },
-    { name: "зар.літ.", url: "https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09", start: "13:45", end: "14:30" }
-  ],
-  // Четвер
-  [
-    { name: "фіз-ра", url: "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", start: "08:30", end: "09:15" },
-    { name: "мист.", url: "https://us05web.zoom.us/j/8960829905?pwd=VE5QK1EraGlaOTNyWDVseld4TCsydz09", start: "09:20", end: "10:05" },
-    { name: "геогр.", url: "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1", start: "10:15", end: "11:00" },
-    { name: "укр.мов.", url: "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", start: "11:10", end: "11:55" },
-    { name: "матем.", url: "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", start: "12:05", end: "12:50" },
-    { name: "англ.м.", url: "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", start: "12:55", end: "13:40" },
-    { name: "історія", url: "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1", start: "13:45", end: "14:30" }
-  ],
-  // П'ятниця
-  [
-    { name: "хімія", url: "https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1", start: "08:30", end: "09:15" },
-    { name: "техн.", url: "https://us05web.zoom.us/j/83853250995?pwd=eG5vNGtOTWJ5azJNYkE3RkFRY3pOZz09", start: "09:20", end: "10:05" },
-    { name: "біологія", url: "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09", start: "10:15", end: "11:00" },
-    { name: "матем.", url: "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", start: "11:10", end: "11:55" },
-    { name: "інформ.", url: "https://us04web.zoom.us/j/3967718575?pwd=OWQvOTdXVkxrZk81Yk1EZG52c1BiQT09", start: "12:05", end: "12:50" },
-    { name: "історія", url: "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1", start: "12:55", end: "13:40" },
-    { name: "англ.м.", url: "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", start: "13:45", end: "14:30" }
-  ]
-];
-
 const days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця"];
 const daysUa = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+const lessonTimes = [
+  { start: "08:30", end: "09:15" },
+  { start: "09:20", end: "10:05" },
+  { start: "10:15", end: "11:00" },
+  { start: "11:10", end: "11:55" },
+  { start: "12:05", end: "12:50" },
+  { start: "12:55", end: "13:40" },
+  { start: "13:45", end: "14:30" }
+];
+
+let schedule = [];
+
+function renderTable() {
+  let html = '<table><tr><th>Час</th>';
+  for (let d = 0; d < days.length; d++) html += `<th>${days[d]}</th>`;
+  html += '</tr>';
+  for (let l = 0; l < lessonTimes.length; l++) {
+    html += `<tr><th>${lessonTimes[l].start} - ${lessonTimes[l].end}</th>`;
+    for (let d = 0; d < days.length; d++) {
+      const dayLessons = schedule[d];
+      let cell = '';
+      if (dayLessons && dayLessons[l]) {
+        if (Array.isArray(dayLessons[l])) {
+          cell = `<div>` + dayLessons[l].map(less =>
+            `<a href="${less.url}">${less.name}</a>`
+          ).join('<span style="width:8px"></span>') + `</div>`;
+          html += `<td class="divide">${cell}</td>`;
+        } else {
+          cell = `<a href="${dayLessons[l].url}">${dayLessons[l].name}</a>`;
+          html += `<td>${cell}</td>`;
+        }
+      }
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  document.getElementById('table').innerHTML = html;
+}
 
 function getCurrentLesson() {
   const now = new Date();
@@ -168,13 +67,35 @@ function getCurrentLesson() {
 
   for (let i = 0; i < lessonsToday.length; i++) {
     const lesson = lessonsToday[i];
-    if (Array.isArray(lesson)) continue;
-    const [startH, startM] = lesson.start.split(":").map(Number);
-    const [endH, endM] = lesson.end.split(":").map(Number);
-    const startMinutes = startH * 60 + startM;
-    const endMinutes = endH * 60 + endM;
-    if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
-      return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, endMinutes };
+    if (Array.isArray(lesson)) {
+      if (i === 0) {
+        const start = lessonTimes[0].start, end = lessonTimes[0].end;
+        const [startH, startM] = start.split(":").map(Number);
+        const [endH, endM] = end.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        const endMinutes = endH * 60 + endM;
+        if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${start} - ${end}`, endMinutes };
+        }
+      }
+      if (i === 6) {
+        const start = lessonTimes[6].start, end = lessonTimes[6].end;
+        const [startH, startM] = start.split(":").map(Number);
+        const [endH, endM] = end.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        const endMinutes = endH * 60 + endM;
+        if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${start} - ${end}`, endMinutes };
+        }
+      }
+    } else if (lesson) {
+      const [startH, startM] = lesson.start.split(":").map(Number);
+      const [endH, endM] = lesson.end.split(":").map(Number);
+      const startMinutes = startH * 60 + startM;
+      const endMinutes = endH * 60 + endM;
+      if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+        return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, endMinutes };
+      }
     }
   }
   return null;
@@ -190,11 +111,29 @@ function getNextLesson() {
 
   for (let i = 0; i < lessonsToday.length; i++) {
     const lesson = lessonsToday[i];
-    if (Array.isArray(lesson)) continue;
-    const [startH, startM] = lesson.start.split(":").map(Number);
-    const startMinutes = startH * 60 + startM;
-    if (currentMinutes < startMinutes) {
-      return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, startMinutes };
+    if (Array.isArray(lesson)) {
+      if (i === 0) {
+        const start = lessonTimes[0].start;
+        const [startH, startM] = start.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        if (currentMinutes < startMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${lessonTimes[0].start} - ${lessonTimes[0].end}`, startMinutes };
+        }
+      }
+      if (i === 6) {
+        const start = lessonTimes[6].start;
+        const [startH, startM] = start.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        if (currentMinutes < startMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${lessonTimes[6].start} - ${lessonTimes[6].end}`, startMinutes };
+        }
+      }
+    } else if (lesson) {
+      const [startH, startM] = lesson.start.split(":").map(Number);
+      const startMinutes = startH * 60 + startM;
+      if (currentMinutes < startMinutes) {
+        return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, startMinutes };
+      }
     }
   }
   return null;
@@ -227,15 +166,25 @@ function showCurrentLesson() {
   const lesson = getCurrentLesson();
   const nextLesson = getNextLesson();
   const el = document.getElementById("current-lesson");
-  if (lesson) {
+  if (lesson && lesson.multi) {
+    el.innerHTML = `Зараз:<br>
+      <a href="${lesson.lessons[0].url}">${lesson.lessons[0].name}</a>
+      або
+      <a href="${lesson.lessons[1].url}">${lesson.lessons[1].name}</a>
+      <br>До кінця уроку: <span id="lesson-timer">${formatTimeLeft(lesson.endMinutes)}</span>`;
+  } else if (lesson) {
     el.innerHTML = `Зараз: <a href="${lesson.url}">${lesson.name}</a>
       <br>До кінця уроку: <span id="lesson-timer">${formatTimeLeft(lesson.endMinutes)}</span>`;
   } else {
     let nextText = "Сьогодні більше немає уроків!";
     if (nextLesson) {
-      nextText = `До наступного уроку: <span id="next-lesson-timer">${formatTimeToNext(nextLesson.startMinutes)}</span>`;
+      if (nextLesson.multi) {
+        nextText = `До наступного уроку: <a href="${nextLesson.lessons[0].url}">${nextLesson.lessons[0].name}</a> або <a href="${nextLesson.lessons[1].url}">${nextLesson.lessons[1].name}</a> <span id="next-lesson-timer">${formatTimeToNext(nextLesson.startMinutes)}</span>`;
+      } else {
+        nextText = `До наступного уроку: <a href="${nextLesson.url}">${nextLesson.name}</a> <span id="next-lesson-timer">${formatTimeToNext(nextLesson.startMinutes)}</span>`;
+      }
     }
-    el.innerHTML = `${nextText}`;
+    el.innerHTML = `Зараз нічого немає!<br>${nextText}`;
   }
 }
 
@@ -264,15 +213,19 @@ function showCurrentTime() {
   el.innerHTML = `${dayName}, ${dd}.${mm}.${yy}<br>${hours}:${minutes}`;
 }
 
-showCurrentLesson();
-showCurrentTime();
-setInterval(showCurrentLesson, 60000);
-setInterval(updateLessonTimer, 1000);
-setInterval(showCurrentTime, 1000);
-
-window.onload = function() {
-  document.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
-};
+// Загрузка расписания из shedule-makar.json и запуск всего
+fetch('shedule-makar.json')
+  .then(r => r.json())
+  .then(data => {
+    schedule = data;
+    renderTable();
+    showCurrentLesson();
+    showCurrentTime();
+    setInterval(showCurrentLesson, 60000);
+    setInterval(updateLessonTimer, 1000);
+    setInterval(showCurrentTime, 1000);
+    document.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
+  });
 </script>
 </body>
 </html>

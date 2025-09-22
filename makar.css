@@ -213,19 +213,16 @@ td.divide-td::before {
 }
 #current-lesson a, #lesson-timer, #next-lesson-timer {
   background: linear-gradient(90deg, 
-    rgb(85, 187, 255),
-    rgb(255, 255, 0),
-    rgb(255, 88, 255),
-    rgb(85, 187, 255),
-    rgb(95, 187, 95),
-    rgb(85, 187, 255));
-  background-size: 600% auto;
+    white,
+    black,
+    white);
+  background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 
-  animation: rainbowMove 6s linear infinite;
+  animation: rainbowMove 2s linear infinite;
 
   text-decoration: none;
 }
@@ -263,7 +260,7 @@ td.divide-td::before {
     rgb(255, 255, 0),
     rgb(255, 88, 255),
     rgb(85, 187, 255));
-    background-size: 600% auto;
+    background-size: 300% auto;
     z-index: -2;
 
     animation: rainbowMove 120s linear infinite;
@@ -286,6 +283,6 @@ td.divide-td::before {
     background-position: 0% center;
   }
   100% {
-    background-position: 600% center;
+    background-position: 300% center;
   }
 }
