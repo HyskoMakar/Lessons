@@ -271,3 +271,34 @@ td:hover {
     background-position: 400% center;
   }
 }
+
+/* Підсвічування поточного дня тижня */
+.today-header {
+  position: relative;
+  color: black;
+  text-shadow: none;
+}
+.today-header::before {
+  content: '';
+  position: absolute;
+  inset: -4px -8px;
+  background: linear-gradient(90deg, #ffd9a8, #ffb46b);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.today-col {
+  position: relative;
+  color: black;
+}
+.today-col a { color: white; }
+.today-col::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  background: rgba(255, 180, 107, 0.35);
+  z-index: -1;
+}

@@ -195,5 +195,32 @@ function showCurrentTime() {
 showCurrentTime();
 setInterval(showCurrentTime, 1000);
 </script>
+<script>
+// Підсвічування тільки поточної колонки дня тижня
+(function highlightTodayColumn() {
+  const now = new Date();
+  const day = now.getDay(); // 1=Пн ... 5=Пт
+  if (day < 1 || day > 5) return; // вихідні — без підсвічування
+
+  const table = document.querySelector("#table table");
+  if (!table) return;
+
+  const colIndex = day + 1; // з урахуванням першої колонки "Час"
+
+  const headerRow = table.querySelector("tr#head");
+  if (headerRow) {
+    const headerCell = headerRow.querySelector(`th:nth-child(${colIndex})`);
+    if (headerCell) headerCell.classList.add("today-header");
+  }
+
+  const bodyRows = table.querySelectorAll("tr:not(#head)");
+  bodyRows.forEach(function(row) {
+    const cells = row.children;
+    if (!cells || cells.length < colIndex) return;
+    const targetCell = cells[colIndex - 1]; // може бути td або th (якщо порожня клітинка)
+    if (targetCell) targetCell.classList.add("today-col");
+  });
+})();
+</script>
 </body>
 </html>
