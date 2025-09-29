@@ -75,21 +75,6 @@ td {
 
     width: fit-content;
 }
-td::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    background: rgba(255, 255, 255, 0.3);
-    width: 15%;
-    height: 200%;
-    box-sizing: border-box;
-    height: 350px;
-    z-index: -1;
-    transform: rotate(35deg);
-    transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
-
-    left: -100%;
-}
 td a {
     color: white;
     text-decoration: none;
@@ -104,13 +89,10 @@ td {
 
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
-td:hover::before {
-    left: 100%;
-}
-td:hover a {
+td:not(.divide):hover a {
     text-shadow: white 0px 0px 10px;
 }
-td:hover {
+td:not(.divide):hover {
     text-shadow: white 0px 0px 10px;
 }
 
@@ -123,48 +105,28 @@ td.divide-td::before {
 
 .divide {
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: column;
+    gap: 6px;
     padding: 0;
 }
 .divide div {
     font-size: 20px;
     text-decoration: none;
-
     overflow: hidden;
     position: relative;
-
-    padding: 5px;
+    padding: 8px 6px;
     margin: 0;
-
     width: fit-content;
+    border-radius: 6px;
 }
 .divide::before {
     width: 0;
     height: 0;
 }
-.divide:hover div a {
+.divide .split:hover a {
     color: white;
 }
-.divide div::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    background: rgba(255, 255, 255, 0.3);
-    width: 15%;
-    height: 200%;
-    box-sizing: border-box;
-    height: 350px;
-    z-index: -1;
-    transform: rotate(35deg);
-    transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
-
-    left: -150%;
-}
-.divide div:hover:before {
-    left: 100%;
-}
-.divide div:hover a {
+.divide .split:hover a {
     text-shadow: white 0px 0px 10px;
     text-decoration: none;
 
@@ -286,3 +248,58 @@ td.divide-td::before {
     background-position: 300% center;
   }
 }
+
+/* Підсвічування поточного дня тижня для Макара */
+.today-header {
+  position: relative;
+  color: black;
+  text-shadow: none;
+}
+.today-header::before {
+  content: '';
+  position: absolute;
+  inset: -4px -8px;
+  background: linear-gradient(90deg, #bfffa8, #6bff81);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.today-col {
+  position: relative;
+}
+.today-col::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  background: rgba(255, 180, 107, 0.35);
+  z-index: -1;
+}
+.today-col a { color: white; }
+
+/* Для клітинок з поділом: фарбуємо кожен блок окремо */
+.today-col.divide::before { background: transparent; }
+.today-col.divide .split { position: relative; }
+.today-col.divide .split::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 6px;
+}
+
+/* Стани для не розділених клітинок */
+.today-col-past::before { background: rgba(46, 139, 87, 0.65); }
+.today-col-now::before { background: rgba(180, 88, 255, 0.65); }
+.today-col-future::before { background: rgba(144, 238, 144, 0.4); }
+
+/* Стани для розділених: past/now/future на кожному .split */
+.today-col-past.divide .split::before { background: rgba(46, 139, 87, 0.65); }
+.today-col-now.divide .split::before { background: rgba(180, 88, 255, 0.65); }
+.today-col-future.divide .split::before { background: rgba(144, 238, 144, 0.4); }
+
+.today-col-now a { color: white; }
+.today-col-past a { color: white; }
+.today-col-future a { color: black; }

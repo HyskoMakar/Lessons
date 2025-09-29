@@ -31,7 +31,7 @@ const lessonTimes = [
 let schedule = [];
 
 function renderTable() {
-  let html = '<table><tr><th>Час</th>';
+  let html = '<table><tr id="head"><th>Час</th>';
   for (let d = 0; d < days.length; d++) html += `<th>${days[d]}</th>`;
   html += '</tr>';
   for (let l = 0; l < lessonTimes.length; l++) {
@@ -41,13 +41,13 @@ function renderTable() {
       let cell = '';
       if (dayLessons && dayLessons[l]) {
         if (Array.isArray(dayLessons[l])) {
-          cell = `<div>` + dayLessons[l].map(less =>
-            `<a href="${less.url}">${less.name}</a>`
-          ).join('<span style="width:8px"></span>') + `</div>`;
-          html += `<td class="divide">${cell}</td>`;
+          cell = dayLessons[l].map(less =>
+            `<div class=\"split\"><a href=\"${less.url}\">${less.name}</a></div>`
+          ).join('');
+          html += `<td class="divide" data-day-index="${d}" data-lesson-index="${l}">${cell}</td>`;
         } else {
           cell = `<a href="${dayLessons[l].url}">${dayLessons[l].name}</a>`;
-          html += `<td>${cell}</td>`;
+          html += `<td data-day-index="${d}" data-lesson-index="${l}">${cell}</td>`;
         }
       }
     }
@@ -225,7 +225,56 @@ fetch('shedule-makar.json')
     setInterval(updateLessonTimer, 1000);
     setInterval(showCurrentTime, 1000);
     document.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
+    highlightTodayColumn();
+    setInterval(highlightTodayColumn, 60000);
   });
+</script>
+<script>
+// Підсвічування поточної колонки дня тижня з розподілом: минулі / зараз / майбутні
+function highlightTodayColumn() {
+  const now = new Date();
+  let day = now.getDay(); // 1=Пн ... 5=Пт
+  if (day < 1 || day > 5) return;
+  const dayIndex = day - 1; // 0..4
+
+  const table = document.querySelector('#table table');
+  if (!table) return;
+
+  // Очистити попередні стани
+  table.querySelectorAll('.today-header').forEach(el => el.classList.remove('today-header'));
+  table.querySelectorAll('.today-col, .today-col-past, .today-col-now, .today-col-future').forEach(el => {
+    el.classList.remove('today-col', 'today-col-past', 'today-col-now', 'today-col-future');
+  });
+
+  // Підсвітити заголовок дня
+  const headerRow = table.querySelector('tr#head');
+  if (headerRow) {
+    const headerCells = headerRow.querySelectorAll('th');
+    const headerCell = headerCells[dayIndex + 1]; // 0-й — "Час"
+    if (headerCell) headerCell.classList.add('today-header');
+  }
+
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  for (let l = 0; l < lessonTimes.length; l++) {
+    const td = table.querySelector(`td[data-day-index="${dayIndex}"][data-lesson-index="${l}"]`);
+    if (!td) continue;
+    td.classList.add('today-col');
+
+    const [sh, sm] = lessonTimes[l].start.split(':').map(Number);
+    const [eh, em] = lessonTimes[l].end.split(':').map(Number);
+    const startM = sh * 60 + sm;
+    const endM = eh * 60 + em;
+
+    if (currentMinutes < startM) {
+      td.classList.add('today-col-future');
+    } else if (currentMinutes >= endM) {
+      td.classList.add('today-col-past');
+    } else {
+      td.classList.add('today-col-now');
+    }
+  }
+}
 </script>
 </body>
 </html>

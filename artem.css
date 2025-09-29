@@ -302,3 +302,18 @@ td:hover {
   background: rgba(255, 180, 107, 0.35);
   z-index: -1;
 }
+
+/* Стан клітинок поточного дня: минулі / поточна / майбутні */
+.today-col-past::before {
+  background: rgba(210, 105, 30, 0.6); /* темно-оранжевий (chocolate) */
+}
+.today-col-now::before {
+  background: rgba(114, 255, 114, 0.6); /* зелений (limegreen) */
+}
+.today-col-future::before {
+  background: rgba(255, 200, 120, 0.35); /* світло-оранжевий */
+}
+
+.today-col-now a { color: black; }
+.today-col-past a { color: white; }
+.today-col-future a { color: white; }

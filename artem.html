@@ -214,11 +214,34 @@ setInterval(showCurrentTime, 1000);
   }
 
   const bodyRows = table.querySelectorAll("tr:not(#head)");
-  bodyRows.forEach(function(row) {
+  // Час у хвилинах зараз
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const lessonsToday = (typeof schedule !== 'undefined') ? schedule[day - 1] : [];
+
+  bodyRows.forEach(function(row, idx) {
     const cells = row.children;
     if (!cells || cells.length < colIndex) return;
-    const targetCell = cells[colIndex - 1]; // може бути td або th (якщо порожня клітинка)
-    if (targetCell) targetCell.classList.add("today-col");
+    const targetCell = cells[colIndex - 1];
+    if (!targetCell) return;
+
+    // Базова підсвітка колонки
+    targetCell.classList.add("today-col");
+
+    // Пошук відповідного уроку за індексом рядка
+    const lesson = lessonsToday[idx];
+    if (!lesson || !lesson.start || !lesson.end) return;
+    const [sh, sm] = lesson.start.split(":").map(Number);
+    const [eh, em] = lesson.end.split(":").map(Number);
+    const startM = sh * 60 + sm;
+    const endM = eh * 60 + em;
+
+    if (currentMinutes < startM) {
+      targetCell.classList.add("today-col-future");
+    } else if (currentMinutes >= endM) {
+      targetCell.classList.add("today-col-past");
+    } else {
+      targetCell.classList.add("today-col-now");
+    }
   });
 })();
 </script>
