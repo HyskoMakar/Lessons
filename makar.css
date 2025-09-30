@@ -91,9 +91,11 @@ td {
 }
 td:not(.divide):hover a {
     text-shadow: white 0px 0px 10px;
+    color: white;
 }
 td:not(.divide):hover {
     text-shadow: white 0px 0px 10px;
+    color: white;
 }
 
 td.divide-td {
@@ -105,8 +107,8 @@ td.divide-td::before {
 
 .divide {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    gap: 2px;
     padding: 0;
 }
 .divide div {
@@ -280,14 +282,20 @@ td.divide-td::before {
 .today-col a { color: white; }
 
 /* Для клітинок з поділом: фарбуємо кожен блок окремо */
-.today-col.divide::before { background: transparent; }
-.today-col.divide .split { position: relative; }
+.today-col.divide::before { 
+    background: transparent; 
+    border-radius: 0;
+}
+.today-col.divide .split { 
+    position: relative;
+    border-radius: 0; 
+}
 .today-col.divide .split::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 /* Стани для не розділених клітинок */
