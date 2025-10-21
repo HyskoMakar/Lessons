@@ -251,19 +251,14 @@ td.divide-td::before {
   }
 }
 
-/* Підсвічування поточного дня тижня для Макара */
-.today-header {
+th.today-header {
   position: relative;
-  color: black;
-  text-shadow: none;
-}
-.today-header::before {
-  content: '';
-  position: absolute;
-  inset: -4px -8px;
-  background: linear-gradient(90deg, #bfffa8, #6bff81);
+  text-shadow: none !important;
+  color: transparent !important;
+  background: linear-gradient(90deg, rgba(75, 255, 39, 1), #3affd4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
   border-radius: 6px;
-  z-index: -1;
 }
 
 .today-col {
@@ -276,10 +271,8 @@ td.divide-td::before {
   left: 0;
   width: 100%;
   height: 350px;
-  background: rgba(255, 180, 107, 0.35);
   z-index: -1;
 }
-.today-col a { color: white; }
 
 /* Для клітинок з поділом: фарбуємо кожен блок окремо */
 .today-col.divide::before { 
@@ -298,16 +291,14 @@ td.divide-td::before {
   border-radius: 0;
 }
 
-/* Стани для не розділених клітинок */
-.today-col-past::before { background: rgba(46, 139, 87, 0.65); }
-.today-col-now::before { background: rgba(180, 88, 255, 0.65); }
-.today-col-future::before { background: rgba(144, 238, 144, 0.4); }
+/* .today-col-past::before { background: cadetblue !important; }
+.today-col-now::before { background: cadetblue !important; }
+.today-col-future::before { background: cadetblue !important; }
 
-/* Стани для розділених: past/now/future на кожному .split */
-.today-col-past.divide .split::before { background: rgba(46, 139, 87, 0.65); }
-.today-col-now.divide .split::before { background: rgba(180, 88, 255, 0.65); }
-.today-col-future.divide .split::before { background: rgba(144, 238, 144, 0.4); }
+.today-col-past.divide .split::before { background: cadetblue !important; }
+.today-col-now.divide .split::before { background: cadetblue !important; }
+.today-col-future.divide .split::before { background: cadetblue !important; } */
 
-.today-col-now a { color: white; }
-.today-col-past a { color: white; }
-.today-col-future a { color: black; }
+.today-col-past, .today-col-past a { color: cadetblue !important; }
+.today-col-now, .today-col-now a { color: rgb(171, 144, 238); }
+.today-col-future, .today-col-future a { color: mediumspringgreen !important; }
