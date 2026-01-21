@@ -27,6 +27,19 @@
     </div>
 
     <script>
+        console.log('Script started loading...');
+        
+        // Простая проверка что элементы существуют
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            const footerLink = document.getElementById('current-lesson-link');
+            if (footerLink) {
+                footerLink.textContent = 'Загружаємо розклад...';
+                console.log('Footer link found and updated');
+            } else {
+                console.error('Footer link not found!');
+            }
+        });
         // Данные расписания встроены прямо в код
         const scheduleData = {
             "schedule": [
