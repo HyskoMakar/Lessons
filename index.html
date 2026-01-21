@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уроки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg" id="bgImage"></div>
+    
+    <div class="header-glass">
+        <div class="header-title">Уроки Артема</div>
+        <div class="header-time" id="current-time"></div>
+    </div>
+    
+    <div class="schedule-container">
+        <button class="nav-btn nav-prev" id="nav-prev">❮</button>
+        <div class="schedule-days" id="schedule-days">
+            <!-- Дни недели с уроками будут вставлены сюда -->
+        </div>
+        <button class="nav-btn nav-next" id="nav-next">❯</button>
+    </div>
+
+    <div class="current-lesson-footer">
+        <a href="#" id="current-lesson-link" class="lesson-footer-link">Завантажуємо...</a>
+    </div>
+
+    <script>
+        // Данные расписания встроены прямо в код
+        const scheduleData = {
+            "schedule": [
+                {
+                    "time": "8.30-9.15",
+                    "monday": {
+                        "name": "Укр.мова",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "tuesday": {
+                        "name": "Англ.мова",
+                        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+                    },
+                    "wednesday": {
+                        "name": "Укр.мова",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "thursday": {
+                        "name": "ПП.МПЗ",
+                        "link": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1"
+                    },
+                    "friday": {
+                        "name": "Математика",
+                        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+                    }
+                },
+                {
+                    "time": "9.25-10.10",
+                    "monday": {
+                        "name": "Укр.мова",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "tuesday": {
+                        "name": "Історія",
+                        "link": "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09"
+                    },
+                    "wednesday": {
+                        "name": "Англ.мова",
+                        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+                    },
+                    "thursday": {
+                        "name": "Фіз-ра",
+                        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+                    },
+                    "friday": null
+                },
+                {
+                    "time": "10.40-11.25",
+                    "monday": {
+                        "name": "Зар.літ.",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "tuesday": {
+                        "name": "Укр.літ.",
+                        "link": "https://us04web.zoom.us/j/75373229481?pwd=RTiz3oC4aKbsm8HhwCi5wsSjC55Sh3.1"
+                    },
+                    "wednesday": {
+                        "name": "Фіз-ра",
+                        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+                    },
+                    "thursday": {
+                        "name": "Математика",
+                        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+                    },
+                    "friday": {
+                        "name": "Технології",
+                        "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+                    }
+                },
+                {
+                    "time": "11.35-12.20",
+                    "monday": {
+                        "name": "ПП.ТФВ",
+                        "link": "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09"
+                    },
+                    "tuesday": {
+                        "name": "Математика",
+                        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+                    },
+                    "wednesday": {
+                        "name": "Зар.літ.",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "thursday": null,
+                    "friday": {
+                        "name": "Історія",
+                        "link": "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09"
+                    }
+                },
+                {
+                    "time": "12.30-13.15",
+                    "monday": {
+                        "name": "Англ.мова",
+                        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+                    },
+                    "tuesday": [
+                        {
+                            "name": "ОБР",
+                            "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+                        },
+                        {
+                            "name": "Музика",
+                            "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+                        }
+                    ],
+                    "wednesday": {
+                        "name": "Математика",
+                        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+                    },
+                    "thursday": {
+                        "name": "Англ-мова",
+                        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+                    },
+                    "friday": {
+                        "name": "Фіз-ра",
+                        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+                    }
+                },
+                {
+                    "time": "13.25-14.10",
+                    "monday": null,
+                    "tuesday": {
+                        "name": "Укр.мова",
+                        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+                    },
+                    "wednesday": {
+                        "name": "ПП.МПЗ",
+                        "link": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1"
+                    },
+                    "thursday": null,
+                    "friday": {
+                        "name": "Англ-мова",
+                        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+                    }
+                },
+                {
+                    "time": "14.20-15.05",
+                    "monday": null,
+                    "tuesday": {
+                        "name": "Навч.р.",
+                        "link": "#"
+                    },
+                    "wednesday": {
+                        "name": "Укр.літ.",
+                        "link": "https://us04web.zoom.us/j/75373229481?pwd=RTiz3oC4aKbsm8HhwCi5wsSjC55Sh3.1"
+                    },
+                    "thursday": {
+                        "name": "Інформатика",
+                        "link": "https://us04web.zoom.us/j/3967718575?pwd=OWQvOTdXVkxrZk81Yk1EZG"
+                    },
+                    "friday": null
+                }
+            ]
+        };
+
+        const bgImage = document.getElementById('bgImage');
+        
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 5 - 2.5;
+            const y = (e.clientY / window.innerHeight) * 5 - 2.5;
+            
+            bgImage.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Обновление времени и даты
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            const timeString = `${hours}:${minutes}<br>${day}.${month}.${year}`;
+            document.getElementById('current-time').innerHTML = timeString;
+        }
+
+        // Обновить время сразу и затем каждую минуту
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Загрузка расписания (теперь из встроенных данных)
+        function loadSchedule() {
+            try {
+                console.log('Загружаем расписание из встроенных данных...');
+                renderSchedule(scheduleData.schedule);
+                console.log('Расписание загружено успешно');
+            } catch (error) {
+                console.error('Ошибка при загрузке расписания:', error);
+                const container = document.getElementById('schedule-days');
+                container.innerHTML = `
+                    <div style="color: white; text-align: center; padding: 20px;">
+                        <h3>Ошибка загрузки расписания</h3>
+                        <p>Попробуйте обновить страницу</p>
+                        <p>Ошибка: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderSchedule(schedule) {
+            const container = document.getElementById('schedule-days');
+            const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+            const dayNames = ['Понеділок', 'Вівторок', 'Середа', 'Четвер', "П'ятниця"];
+
+            days.forEach((day, dayIndex) => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.textContent = dayNames[dayIndex];
+                dayCard.appendChild(dayHeader);
+
+                const lessonsList = document.createElement('div');
+                lessonsList.className = 'lessons-list';
+
+                schedule.forEach(row => {
+                    const lesson = row[day];
+
+                    if (lesson === null) {
+                        return; // Пропустить пустые уроки
+                    }
+
+                    if (Array.isArray(lesson)) {
+                        // Несколько уроков в одной коробочке
+                        const lessonItem = document.createElement('div');
+                        lessonItem.className = 'lesson-item';
+
+                        const timeSpan = document.createElement('div');
+                        timeSpan.className = 'lesson-time';
+                        timeSpan.textContent = row.time;
+                        lessonItem.appendChild(timeSpan);
+
+                        lesson.forEach((item, index) => {
+                            const a = document.createElement('a');
+                            a.href = item.link;
+                            a.target = '_blank';
+                            a.textContent = item.name;
+                            a.className = 'lesson-link';
+                            
+                            if (index > 0) {
+                                a.style.marginTop = '4px';
+                                a.style.paddingTop = '4px';
+                                a.style.borderTop = '1px solid rgba(255, 255, 255, 0.2)';
+                            }
+                            
+                            lessonItem.appendChild(a);
+                        });
+
+                        lessonsList.appendChild(lessonItem);
+                    } else {
+                        // Один урок
+                        const lessonItem = document.createElement('div');
+                        lessonItem.className = 'lesson-item';
+
+                        const timeSpan = document.createElement('div');
+                        timeSpan.className = 'lesson-time';
+                        timeSpan.textContent = row.time;
+                        lessonItem.appendChild(timeSpan);
+
+                        const a = document.createElement('a');
+                        a.href = lesson.link;
+                        a.target = '_blank';
+                        a.textContent = lesson.name;
+                        a.className = 'lesson-link';
+                        lessonItem.appendChild(a);
+
+                        lessonsList.appendChild(lessonItem);
+                    }
+                });
+
+                dayCard.appendChild(lessonsList);
+                container.appendChild(dayCard);
+            });
+        }
+
+        // Загрузить расписание при загрузке страницы
+        loadSchedule();
+
+        // Навигация по дням для мобильных устройств
+        let currentDayIndex = 0;
+        const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
+        function updateMobileView() {
+            const dayCards = document.getElementById('schedule-days').querySelectorAll('.day-card');
+            dayCards.forEach((card, index) => {
+                card.classList.remove('active', 'prev', 'next');
+                if (index === currentDayIndex) {
+                    card.classList.add('active');
+                } else if (index < currentDayIndex) {
+                    card.classList.add('prev');
+                } else {
+                    card.classList.add('next');
+                }
+            });
+        }
+
+        document.getElementById('nav-prev').addEventListener('click', () => {
+            if (currentDayIndex > 0) {
+                currentDayIndex--;
+                updateMobileView();
+            }
+        });
+
+        document.getElementById('nav-next').addEventListener('click', () => {
+            const dayCards = document.getElementById('schedule-days').querySelectorAll('.day-card');
+            if (currentDayIndex < dayCards.length - 1) {
+                currentDayIndex++;
+                updateMobileView();
+            }
+        });
+
+        // Инициализация первого дня на мобильных
+        if (window.innerWidth <= 768) {
+            updateMobileView();
+        }
+
+        // Логика для поточного уроку та лічільника часу
+        let allLessons = [];
+
+        function loadScheduleForFooter() {
+            try {
+                // Збираємо всі уроки з днями тижня
+                scheduleData.schedule.forEach(row => {
+                    const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                    days.forEach((day, dayIndex) => {
+                        const lesson = row[day];
+                        if (lesson !== null) {
+                            const lessons = Array.isArray(lesson) ? lesson : [lesson];
+                            lessons.forEach(l => {
+                                allLessons.push({
+                                    time: row.time,
+                                    name: l.name,
+                                    link: l.link,
+                                    day: dayIndex,
+                                    dayName: ['Понеділок', 'Вівторок', 'Середа', 'Четвер', "П'ятниця"][dayIndex]
+                                });
+                            });
+                        }
+                    });
+                });
+
+                updateFooter();
+                setInterval(updateFooter, 1000);
+            } catch (error) {
+                console.error('Ошибка при загрузке расписания для футера:', error);
+                const footerLink = document.getElementById('current-lesson-link');
+                footerLink.textContent = 'Ошибка загрузки расписания';
+                footerLink.href = '#';
+            }
+        }
+
+        function parseTime(timeStr) {
+            const [start] = timeStr.split('-');
+            const [hours, minutes] = start.split('.').map(Number);
+            return { hours, minutes };
+        }
+
+        function updateFooter() {
+            const now = new Date();
+            let currentDay = now.getDay() - 1; // 0 = понеділок
+            
+            // Якщо субота або неділя, переходимо на понеділок
+            if (currentDay === 5 || currentDay === 6 || currentDay < 0) {
+                currentDay = 0;
+            }
+            
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentSecond = now.getSeconds();
+            const currentTotalSeconds = currentHour * 3600 + currentMinute * 60 + currentSecond;
+
+            let currentLesson = null;
+            let nextLesson = null;
+
+            // Знайти поточний урок сьогодні
+            for (const lesson of allLessons) {
+                if (lesson.day === currentDay) {
+                    const { hours, minutes } = parseTime(lesson.time);
+                    const lessonStartSeconds = hours * 3600 + minutes * 60;
+                    const lessonEndSeconds = lessonStartSeconds + 45 * 60; // 45 хвилин на урок
+
+                    if (currentTotalSeconds >= lessonStartSeconds && currentTotalSeconds < lessonEndSeconds) {
+                        currentLesson = lesson;
+                        break;
+                    } else if (currentTotalSeconds < lessonStartSeconds && !nextLesson) {
+                        nextLesson = lesson;
+                    }
+                }
+            }
+
+            // Якщо немає поточного - знайти наступний
+            if (!currentLesson && !nextLesson) {
+                for (const lesson of allLessons) {
+                    if (lesson.day > currentDay) {
+                        nextLesson = lesson;
+                        break;
+                    }
+                }
+                
+                // Якщо немає уроків до кінця тижня, шукаємо з понеділка наступного тижня
+                if (!nextLesson) {
+                    for (const lesson of allLessons) {
+                        nextLesson = lesson;
+                        break;
+                    }
+                }
+            }
+
+            const footerLink = document.getElementById('current-lesson-link');
+
+            if (currentLesson) {
+                footerLink.textContent = `📚 Зараз: ${currentLesson.name}`;
+                footerLink.href = currentLesson.link;
+            } else {
+                // Проверяем есть ли несколько уроков в это время
+                const currentLessons = allLessons.filter(lesson => {
+                    if (lesson.day === currentDay) {
+                        const { hours, minutes } = parseTime(lesson.time);
+                        const lessonStartSeconds = hours * 3600 + minutes * 60;
+                        const lessonEndSeconds = lessonStartSeconds + 45 * 60;
+                        return currentTotalSeconds >= lessonStartSeconds && currentTotalSeconds < lessonEndSeconds;
+                    }
+                    return false;
+                });
+                
+                if (currentLessons.length > 1) {
+                    const lessonNames = currentLessons.map(l => l.name).join(' або ');
+                    footerLink.textContent = `📚 Зараз: ${lessonNames}`;
+                    footerLink.href = currentLessons[0].link;
+                } else if (nextLesson) {
+                const nextTime = parseTime(nextLesson.time);
+                const nextStartSeconds = nextTime.hours * 3600 + nextTime.minutes * 60;
+
+                let secondsUntil;
+                if (nextLesson.day === currentDay) {
+                    secondsUntil = nextStartSeconds - currentTotalSeconds;
+                } else {
+                    const daysUntil = nextLesson.day - currentDay;
+                    secondsUntil = daysUntil * 24 * 3600 + nextStartSeconds;
+                }
+
+                if (secondsUntil <= 0) {
+                    secondsUntil = 7 * 24 * 3600; // Перейти на наступний тиждень
+                }
+
+                const hours = Math.floor(secondsUntil / 3600);
+                const minutes = Math.floor((secondsUntil % 3600) / 60);
+                const seconds = secondsUntil % 60;
+
+                let timeStr = '';
+                if (hours > 0) timeStr += `${hours}г `;
+                if (minutes > 0 || hours > 0) timeStr += `${minutes}хв `;
+                timeStr += `${seconds}с`;
+
+                footerLink.textContent = `⏱️ До "${nextLesson.name}": ${timeStr}`;
+                footerLink.href = nextLesson.link;
+                } else {
+                    footerLink.textContent = 'Немає розкладу';
+                    footerLink.href = '#';
+                }
+            }
+        }
+
+        loadScheduleForFooter();
+    </script>
+</body>
+</html>

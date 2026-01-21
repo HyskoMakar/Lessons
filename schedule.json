@@ -1,0 +1,153 @@
+{
+  "schedule": [
+    {
+      "time": "8.30-9.15",
+      "monday": {
+        "name": "Укр.мова",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "tuesday": {
+        "name": "Англ.мова",
+        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+      },
+      "wednesday": {
+        "name": "Укр.мова",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "thursday": {
+        "name": "ПП.МПЗ",
+        "link": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1"
+      },
+      "friday": {
+        "name": "Математика",
+        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+      }
+    },
+    {
+      "time": "9.25-10.10",
+      "monday": {
+        "name": "Укр.мова",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "tuesday": {
+        "name": "Історія",
+        "link": "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09"
+      },
+      "wednesday": {
+        "name": "Англ.мова",
+        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+      },
+      "thursday": {
+        "name": "Фіз-ра",
+        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+      },
+      "friday": null
+    },
+    {
+      "time": "10.40-11.25",
+      "monday": {
+        "name": "Зар.літ.",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "tuesday": {
+        "name": "Укр.літ.",
+        "link": "https://us04web.zoom.us/j/75373229481?pwd=RTiz3oC4aKbsm8HhwCi5wsSjC55Sh3.1"
+      },
+      "wednesday": {
+        "name": "Фіз-ра",
+        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+      },
+      "thursday": {
+        "name": "Математика",
+        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+      },
+      "friday": {
+        "name": "Технології",
+        "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+      }
+    },
+    {
+      "time": "11.35-12.20",
+      "monday": {
+        "name": "ПП.ТФВ",
+        "link": "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09"
+      },
+      "tuesday": {
+        "name": "Математика",
+        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+      },
+      "wednesday": {
+        "name": "Зар.літ.",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "thursday": null,
+      "friday": {
+        "name": "Історія",
+        "link": "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09"
+      }
+    },
+    {
+      "time": "12.30-13.15",
+      "monday": {
+        "name": "Англ.мова",
+        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+      },
+      "tuesday": [
+        {
+          "name": "ОБР",
+          "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+        },
+        {
+          "name": "Музика",
+          "link": "https://us05web.zoom.us/j/3864446393?pwd=eNMz1DLDDbkewcwJKL7vXB10"
+        }
+      ],
+      "wednesday": {
+        "name": "Математика",
+        "link": "https://us04web.zoom.us/j/7825855931?pwd=WFR5L3krQmVJL21kMFZpalRDeTc4Zz09"
+      },
+      "thursday": {
+        "name": "Англ-мова",
+        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+      },
+      "friday": {
+        "name": "Фіз-ра",
+        "link": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09"
+      }
+    },
+    {
+      "time": "13.25-14.10",
+      "monday": null,
+      "tuesday": {
+        "name": "Укр.мова",
+        "link": "https://us04web.zoom.us/j/6379448687?pwd=SzRKZXNuV2tCOXBndkVJN1gyR3grZz09"
+      },
+      "wednesday": {
+        "name": "ПП.МПЗ",
+        "link": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1"
+      },
+      "thursday": null,
+      "friday": {
+        "name": "Англ-мова",
+        "link": "https://us04web.zoom.us/j/8543646084?pwd=N3JBWlprSVpyV3VxaVBZK01Uanh0dz09"
+      }
+    },
+    {
+      "time": "14.20-15.05",
+      "monday": null,
+      "tuesday": {
+        "name": "Навч.р.",
+        "link": "#"
+      },
+      "wednesday": {
+        "name": "Укр.літ.",
+        "link": "https://us04web.zoom.us/j/75373229481?pwd=RTiz3oC4aKbsm8HhwCi5wsSjC55Sh3.1"
+      },
+      "thursday": {
+        "name": "Інформатика",
+        "link": "https://us04web.zoom.us/j/3967718575?pwd=OWQvOTdXVkxrZk81Yk1EZG"
+      },
+      "friday": null
+    }
+  ]
+}
