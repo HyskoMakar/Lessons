@@ -305,7 +305,10 @@
         }
 
         // Загрузить расписание при загрузке страницы
-        loadSchedule();
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSchedule();
+            loadScheduleForFooter();
+        });
 
         // Навигация по дням для мобильных устройств
         let currentDayIndex = 0;
@@ -341,9 +344,11 @@
         });
 
         // Инициализация первого дня на мобильных
-        if (window.innerWidth <= 768) {
-            updateMobileView();
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                setTimeout(updateMobileView, 100);
+            }
+        });
 
         // Логика для поточного уроку та лічільника часу
         let allLessons = [];
