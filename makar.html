@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макара уроки</title>
+    <link rel="stylesheet" href="makar.css">
+</head>
+<body>
+    <div id="current-lesson"></div>
+    <div id="current-time"></div>
+    <h1>Розклад уроків Макара</h1>
+
+    <div id="head_gradient"></div>
+    <div id="head_gradient2"></div>
+
+    <div id="table"></div>
+<script>
+const days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця"];
+const daysUa = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+const lessonTimes = [
+  { start: "08:30", end: "09:15" },
+  { start: "09:25", end: "10:10" },
+  { start: "10:20", end: "11:05" },
+  { start: "11:15", end: "12:00" },
+  { start: "12:10", end: "12:55" },
+  { start: "13:05", end: "13:50" },
+  { start: "14:00", end: "14:45" }
+];
+
+let schedule = [];
+
+function renderTable() {
+  let html = '<table><tr id="head"><th>Час</th>';
+  for (let d = 0; d < days.length; d++) html += `<th>${days[d]}</th>`;
+  html += '</tr>';
+  for (let l = 0; l < lessonTimes.length; l++) {
+    html += `<tr><th>${lessonTimes[l].start} - ${lessonTimes[l].end}</th>`;
+    for (let d = 0; d < days.length; d++) {
+      const dayLessons = schedule[d];
+      let cell = '';
+      if (dayLessons && dayLessons[l]) {
+        if (Array.isArray(dayLessons[l])) {
+          cell = dayLessons[l].map(less =>
+            `<div class=\"split\"><a href=\"${less.url}\">${less.name}</a></div>`
+          ).join('');
+          html += `<td class="divide" data-day-index="${d}" data-lesson-index="${l}">${cell}</td>`;
+        } else {
+          cell = `<a href="${dayLessons[l].url}">${dayLessons[l].name}</a>`;
+          html += `<td data-day-index="${d}" data-lesson-index="${l}">${cell}</td>`;
+        }
+      }
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  document.getElementById('table').innerHTML = html;
+}
+
+function getCurrentLesson() {
+  const now = new Date();
+  let day = now.getDay();
+  if (day === 0 || day === 6) return null;
+  day = day - 1;
+  const lessonsToday = schedule[day];
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  for (let i = 0; i < lessonsToday.length; i++) {
+    const lesson = lessonsToday[i];
+    if (Array.isArray(lesson)) {
+      if (i === 0) {
+        const start = lessonTimes[0].start, end = lessonTimes[0].end;
+        const [startH, startM] = start.split(":").map(Number);
+        const [endH, endM] = end.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        const endMinutes = endH * 60 + endM;
+        if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${start} - ${end}`, endMinutes };
+        }
+      }
+      if (i === 6) {
+        const start = lessonTimes[6].start, end = lessonTimes[6].end;
+        const [startH, startM] = start.split(":").map(Number);
+        const [endH, endM] = end.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        const endMinutes = endH * 60 + endM;
+        if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${start} - ${end}`, endMinutes };
+        }
+      }
+    } else if (lesson) {
+      const [startH, startM] = lesson.start.split(":").map(Number);
+      const [endH, endM] = lesson.end.split(":").map(Number);
+      const startMinutes = startH * 60 + startM;
+      const endMinutes = endH * 60 + endM;
+      if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+        return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, endMinutes };
+      }
+    }
+  }
+  return null;
+}
+
+function getNextLesson() {
+  const now = new Date();
+  let day = now.getDay();
+  if (day === 0 || day === 6) return null;
+  day = day - 1;
+  const lessonsToday = schedule[day];
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  for (let i = 0; i < lessonsToday.length; i++) {
+    const lesson = lessonsToday[i];
+    if (Array.isArray(lesson)) {
+      if (i === 0) {
+        const start = lessonTimes[0].start;
+        const [startH, startM] = start.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        if (currentMinutes < startMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${lessonTimes[0].start} - ${lessonTimes[0].end}`, startMinutes };
+        }
+      }
+      if (i === 6) {
+        const start = lessonTimes[6].start;
+        const [startH, startM] = start.split(":").map(Number);
+        const startMinutes = startH * 60 + startM;
+        if (currentMinutes < startMinutes) {
+          return { multi: true, lessons: lesson, day: days[day], time: `${lessonTimes[6].start} - ${lessonTimes[6].end}`, startMinutes };
+        }
+      }
+    } else if (lesson) {
+      const [startH, startM] = lesson.start.split(":").map(Number);
+      const startMinutes = startH * 60 + startM;
+      if (currentMinutes < startMinutes) {
+        return { ...lesson, day: days[day], time: `${lesson.start} - ${lesson.end}`, startMinutes };
+      }
+    }
+  }
+  return null;
+}
+
+function formatTimeLeft(endMinutes) {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const currentSeconds = now.getSeconds();
+  let totalSecondsLeft = (endMinutes - currentMinutes) * 60 - currentSeconds;
+  if (totalSecondsLeft < 0) totalSecondsLeft = 0;
+  const mm = Math.floor(totalSecondsLeft / 60).toString().padStart(2, "0");
+  const ss = (totalSecondsLeft % 60).toString().padStart(2, "0");
+  return `${mm}:${ss}`;
+}
+
+function formatTimeToNext(startMinutes) {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const currentSeconds = now.getSeconds();
+  let totalSecondsLeft = (startMinutes - currentMinutes) * 60 - currentSeconds;
+  if (totalSecondsLeft < 0) totalSecondsLeft = 0;
+  const hh = Math.floor(totalSecondsLeft / 3600).toString().padStart(2, "0");
+  const mm = Math.floor((totalSecondsLeft % 3600) / 60).toString().padStart(2, "0");
+  const ss = (totalSecondsLeft % 60).toString().padStart(2, "0");
+  return `${hh}:${mm}:${ss}`;
+}
+
+function showCurrentLesson() {
+  const lesson = getCurrentLesson();
+  const nextLesson = getNextLesson();
+  const el = document.getElementById("current-lesson");
+  if (lesson && lesson.multi) {
+    el.innerHTML = `Зараз:<br>
+      <a href="${lesson.lessons[0].url}">${lesson.lessons[0].name}</a>
+      або
+      <a href="${lesson.lessons[1].url}">${lesson.lessons[1].name}</a>
+      <br>До кінця уроку: <span id="lesson-timer">${formatTimeLeft(lesson.endMinutes)}</span>`;
+  } else if (lesson) {
+    el.innerHTML = `Зараз: <a href="${lesson.url}">${lesson.name}</a>
+      <br>До кінця уроку: <span id="lesson-timer">${formatTimeLeft(lesson.endMinutes)}</span>`;
+  } else {
+    let nextText = "Сьогодні більше немає уроків!";
+    if (nextLesson) {
+      if (nextLesson.multi) {
+        nextText = `До наступного уроку: <a href="${nextLesson.lessons[0].url}">${nextLesson.lessons[0].name}</a> або <a href="${nextLesson.lessons[1].url}">${nextLesson.lessons[1].name}</a> <span id="next-lesson-timer">${formatTimeToNext(nextLesson.startMinutes)}</span>`;
+      } else {
+        nextText = `До наступного уроку: <a href="${nextLesson.url}">${nextLesson.name}</a> <span id="next-lesson-timer">${formatTimeToNext(nextLesson.startMinutes)}</span>`;
+      }
+    }
+    el.innerHTML = `Зараз нічого немає!<br>${nextText}`;
+  }
+}
+
+function updateLessonTimer() {
+  const lesson = getCurrentLesson();
+  const nextLesson = getNextLesson();
+  const timerEl = document.getElementById("lesson-timer");
+  const nextTimerEl = document.getElementById("next-lesson-timer");
+  if (lesson && timerEl) {
+    timerEl.textContent = formatTimeLeft(lesson.endMinutes);
+  }
+  if (!lesson && nextLesson && nextTimerEl) {
+    nextTimerEl.textContent = formatTimeToNext(nextLesson.startMinutes);
+  }
+}
+
+function showCurrentTime() {
+  const el = document.getElementById("current-time");
+  const now = new Date();
+  const dayName = daysUa[now.getDay()];
+  const dd = now.getDate().toString().padStart(2, "0");
+  const mm = (now.getMonth() + 1).toString().padStart(2, "0");
+  const yy = now.getFullYear().toString().slice(-2);
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  el.innerHTML = `${dayName}, ${dd}.${mm}.${yy}<br>${hours}:${minutes}`;
+}
+
+// Загрузка расписания из shedule-makar.json и запуск всего
+fetch('shedule-makar.json')
+  .then(r => r.json())
+  .then(data => {
+    schedule = data;
+    renderTable();
+    showCurrentLesson();
+    showCurrentTime();
+    setInterval(showCurrentLesson, 60000);
+    setInterval(updateLessonTimer, 1000);
+    setInterval(showCurrentTime, 1000);
+    document.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
+    highlightTodayColumn();
+    setInterval(highlightTodayColumn, 60000);
+  });
+</script>
+<script>
+// Підсвічування поточної колонки дня тижня з розподілом: минулі / зараз / майбутні
+function highlightTodayColumn() {
+  const now = new Date();
+  let day = now.getDay(); // 1=Пн ... 5=Пт
+  if (day < 1 || day > 5) return;
+  const dayIndex = day - 1; // 0..4
+
+  const table = document.querySelector('#table table');
+  if (!table) return;
+
+  // Очистити попередні стани
+  table.querySelectorAll('.today-header').forEach(el => el.classList.remove('today-header'));
+  table.querySelectorAll('.today-col, .today-col-past, .today-col-now, .today-col-future').forEach(el => {
+    el.classList.remove('today-col', 'today-col-past', 'today-col-now', 'today-col-future');
+  });
+
+  // Підсвітити заголовок дня
+  const headerRow = table.querySelector('tr#head');
+  if (headerRow) {
+    const headerCells = headerRow.querySelectorAll('th');
+    const headerCell = headerCells[dayIndex + 1]; // 0-й — "Час"
+    if (headerCell) headerCell.classList.add('today-header');
+  }
+
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  for (let l = 0; l < lessonTimes.length; l++) {
+    const td = table.querySelector(`td[data-day-index="${dayIndex}"][data-lesson-index="${l}"]`);
+    if (!td) continue;
+    td.classList.add('today-col');
+
+    const [sh, sm] = lessonTimes[l].start.split(':').map(Number);
+    const [eh, em] = lessonTimes[l].end.split(':').map(Number);
+    const startM = sh * 60 + sm;
+    const endM = eh * 60 + em;
+
+    if (currentMinutes < startM) {
+      td.classList.add('today-col-future');
+    } else if (currentMinutes >= endM) {
+      td.classList.add('today-col-past');
+    } else {
+      td.classList.add('today-col-now');
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+[
+  [
+    { "name": "укр.літ.", "url": "https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09", "start": "08:30", "end": "09:15" },
+    { "name": "фізика", "url": "https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1", "start": "09:25", "end": "10:10" },
+    { "name": "укр.мов.", "url": "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", "start": "10:20", "end": "11:05" },
+    { "name": "фіз-ра", "url": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", "start": "11:15", "end": "12:00" },
+    { "name": "геогр.", "url": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1", "start": "12:10", "end": "12:55" },
+    { "name": "матем.", "url": "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", "start": "13:05", "end": "13:50" },
+    { "name": "зар.літ.", "url": "https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09", "start": "14:00", "end": "14:45" }
+  ],
+  [
+    [
+      { "name": "гром. осв.", "url": "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1" },
+      { "name": "ЗБД", "url": "https://us04web.zoom.us/j/2907077579?pwd=mHaWTpFDUtsuAIJzL7ilkkESMxkDfW.1" }
+    ],
+    { "name": "фіз-ра", "url": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", "start": "09:25", "end": "10:10" },
+    { "name": "укр.мов.", "url": "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", "start": "10:20", "end": "11:05" },
+    { "name": "матем.", "url": "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", "start": "11:15", "end": "12:00" },
+    { "name": "хімія", "url": "https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1", "start": "12:10", "end": "12:55" },
+    { "name": "англ.м.", "url": "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", "start": "13:05", "end": "13:50" },
+    [
+      { "name": "ПФГ", "url": "https://us05web.zoom.us/j/8926221772?pwd=QkMyOUtuSkk0VG9DOGw0L1hRK01EQT09" },
+      { "name": "історія", "url": "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1" }
+    ]
+  ],
+  [
+    { "name": "укр.мов.", "url": "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", "start": "08:30", "end": "09:15" },
+    { "name": "матем.", "url": "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", "start": "09:25", "end": "10:10" },
+    { "name": "англ.м.", "url": "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", "start": "10:20", "end": "11:05" },
+    { "name": "біологія", "url": "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09", "start": "11:15", "end": "12:00" },
+    { "name": "укр.літ.", "url": "https://us05web.zoom.us/j/4556152427?pwd=ODRIdHRZd2tTQmhYWWM1ZlRxdXNoZz09", "start": "12:10", "end": "12:55" },
+    { "name": "фізика", "url": "https://us05web.zoom.us/j/4296271141?pwd=dtToXR31cumyqlRVAREx4Nb2LS7maJ.1", "start": "13:05", "end": "13:50" },
+    { "name": "зар.літ.", "url": "https://us04web.zoom.us/j/5568453428?pwd=YXJMd2luS1QvU1hLVEZGbUphaWQrdz09", "start": "14:00", "end": "14:45" }
+  ],
+  [
+    { "name": "фіз-ра", "url": "https://us05web.zoom.us/j/7900964053?pwd=WUZaSVc2cGlsaGlXUVAzZWdpVzZhdz09", "start": "08:30", "end": "09:15" },
+    { "name": "мист.", "url": "https://us05web.zoom.us/j/8960829905?pwd=VE5QK1EraGlaOTNyWDVseld4TCsydz09", "start": "09:25", "end": "10:10" },
+    { "name": "геогр.", "url": "https://us04web.zoom.us/j/3831535317?pwd=r79ahOfa8208nVdaAJxNtS1ROXh5Uq.1", "start": "10:20", "end": "11:05" },
+    { "name": "укр.мов.", "url": "https://us04web.zoom.us/j/6368546099?pwd=WURFbEptOXVzN3Y4bStYYWo2bmcrdz09", "start": "11:15", "end": "12:00" },
+    { "name": "матем.", "url": "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", "start": "12:10", "end": "12:55" },
+    { "name": "англ.м.", "url": "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", "start": "13:05", "end": "13:50" },
+    { "name": "історія", "url": "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1", "start": "14:00", "end": "14:45" }
+  ],
+  [
+    { "name": "хімія", "url": "https://us04web.zoom.us/j/8815793602?pwd=Po9u74s6U0WVObYcSKfHh88mPtchge.1", "start": "08:30", "end": "09:15" },
+    { "name": "техн.", "url": "https://us05web.zoom.us/j/83853250995?pwd=eG5vNGtOTWJ5azJNYkE3RkFRY3pOZz09", "start": "09:25", "end": "10:10" },
+    { "name": "біологія", "url": "https://us04web.zoom.us/j/7968315256?pwd=RnhSbDFHQjhYUFAwcDBEZlMxWEhUdz09", "start": "10:20", "end": "11:05" },
+    { "name": "матем.", "url": "https://us04web.zoom.us/j/7813938105?pwd=TTVZT1VFRU00SktBUUlWV1ZnQnZtZz09", "start": "11:15", "end": "12:00" },
+    { "name": "інформ.", "url": "https://us04web.zoom.us/j/3967718575?pwd=OWQvOTdXVkxrZk81Yk1EZG52c1BiQT09", "start": "12:10", "end": "12:55" },
+    { "name": "історія", "url": "https://us05web.zoom.us/j/3851168478?pwd=ArfH2ToB5TaB2mHWOrUIxfSoraWEox.1", "start": "13:05", "end": "13:50" },
+    { "name": "англ.м.", "url": "https://us04web.zoom.us/j/8812946083?pwd=VlF6K01pdFFNSWlpUnJHK2ZjUU5VUT09", "start": "14:00", "end": "14:45" }
+  ]
+]
